@@ -1,0 +1,69 @@
+{
+  "name": "ngrx-signal-store",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "angular-signal-store",
+  "sourceRoot": "apps/ngrx-signal-store/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ngrx-signal-store",
+        "index": "apps/ngrx-signal-store/src/index.html",
+        "browser": "apps/ngrx-signal-store/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/ngrx-signal-store/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/ngrx-signal-store/src/favicon.ico",
+          "apps/ngrx-signal-store/src/assets"
+        ],
+        "styles": ["apps/ngrx-signal-store/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ngrx-signal-store:build:production"
+        },
+        "development": {
+          "buildTarget": "ngrx-signal-store:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ngrx-signal-store:build"
+      }
+    }
+  }
+}
