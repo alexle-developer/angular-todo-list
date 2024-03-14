@@ -2,7 +2,15 @@
   "name": "@angular-signal-store/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nx": "nx",
+    "start": "npx nx serve",
+    "build": "npx nx build",
+    "test": "npx nx test",
+    "lint": "npx nx lint",
+    "e2e": "npx nx e2e",
+    "ngrx-signal-store": "npx nx run ngrx-signal-store:serve:development"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.1.0",
