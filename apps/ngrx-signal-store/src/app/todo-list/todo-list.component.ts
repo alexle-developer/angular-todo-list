@@ -34,4 +34,8 @@ import { TodoStore } from '../store/todo.store';
 })
 export class TodoListComponent {
   store = inject(TodoStore);
+
+  onAddTodo(title: string) {
+    this.store.addTodo(title);
+  }
 }
