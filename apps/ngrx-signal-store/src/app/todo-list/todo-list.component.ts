@@ -35,7 +35,12 @@ import { TodoStore } from '../store/todo.store';
 export class TodoListComponent {
   store = inject(TodoStore);
 
-  onAddTodo(title: string) {
-    this.store.addTodo(title);
+  async onAddTodo(title: string) {
+    await this.store.addTodo(title);
+  }
+
+  async onDeleteTodo(id: number, event: MouseEvent) {
+    event.preventDefault();
+    await this.store.deleteTodo(id);
   }
 }

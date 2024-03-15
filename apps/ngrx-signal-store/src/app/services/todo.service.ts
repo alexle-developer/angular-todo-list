@@ -26,4 +26,8 @@ export class TodoService {
       ...todo,
     } as Todo;
   }
+
+  async deleteTodo(id: number) {
+    return ToDosData.filter((todo: Todo) => todo.id !== id);
+  }
 }
