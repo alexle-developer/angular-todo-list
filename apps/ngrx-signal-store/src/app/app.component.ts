@@ -3,10 +3,18 @@ import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { TodoStore } from './store/todo.store';
 import { JsonPipe } from '@angular/common';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule, JsonPipe],
+  imports: [
+    NxWelcomeComponent,
+    RouterModule,
+    JsonPipe,
+    TodoListComponent,
+    MatProgressSpinner,
+  ],
   selector: 'angular-signal-store-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

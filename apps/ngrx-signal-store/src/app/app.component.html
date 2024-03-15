@@ -2,11 +2,14 @@
 <div class="app">
   <div class="row">
     <div class="col-md-12">
-      <h1>To Do Example</h1>
       <div>
-        {{ store.todos() | json }}
+        @if(!store.loading()) {
+        <todo-list />
+        } @else {
+        <mat-spinner />
+        }
       </div>
-      <router-outlet></router-outlet>
+      <!-- <router-outlet></router-outlet> -->
     </div>
   </div>
 </div>
