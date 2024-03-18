@@ -20,9 +20,11 @@ export class TodoService {
     return ToDosData.find((todo: Todo) => todo.id === id) as Todo;
   }
 
-  async addTodo(todo: Partial<Todo>) {
+  async addTodo(todo: Partial<Todo>): Promise<Todo> {
+    // use math random to generate a random id
+    // this is just for the demo and ensure the id is unique
     return {
-      id: ToDosData.length + 1,
+      id: Math.floor(Math.random() * 1000) + 1,
       ...todo,
     } as Todo;
   }
