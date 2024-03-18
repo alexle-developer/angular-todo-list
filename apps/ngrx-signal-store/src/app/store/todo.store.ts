@@ -58,17 +58,15 @@ export const TodoStore = signalStore(
       }));
     },
 
-    /**
-     * Updates the completion status of a todo item.
-     *
-     * @param id - The ID of the todo item to update.
-     * @param completed - The new completion status of the todo item.
-     */
     async updateTodo(id: number, completed: boolean) {
       await todoService.updateTodo(id, completed);
       patchState(store, (state) => ({
         todos: state.todos.map((t) => (t.id === id ? { ...t, completed } : t)),
       }));
+    },
+
+    updateFilter(filter: TodosFilter) {
+      patchState(store, { filter });
     },
   }))
 );
