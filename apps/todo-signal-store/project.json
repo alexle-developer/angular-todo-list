@@ -1,28 +1,28 @@
 {
-  "name": "ngrx-signal-store",
+  "name": "todo",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "",
-  "sourceRoot": "apps/ngrx-signal-store/src",
+  "sourceRoot": "apps/todo-signal-store/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/ngrx-signal-store",
-        "index": "apps/ngrx-signal-store/src/index.html",
-        "browser": "apps/ngrx-signal-store/src/main.ts",
+        "outputPath": "dist/apps/todo-signal-store",
+        "index": "apps/todo-signal-store/src/index.html",
+        "browser": "apps/todo-signal-store/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/ngrx-signal-store/tsconfig.app.json",
+        "tsConfig": "apps/todo-signal-store/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/ngrx-signal-store/src/favicon.ico",
-          "apps/ngrx-signal-store/src/assets"
+          "apps/todo-signal-store/src/favicon.ico",
+          "apps/todo-signal-store/src/assets"
         ],
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
-          "apps/ngrx-signal-store/src/styles.scss"
+          "apps/todo-signal-store/src/styles.scss"
         ],
         "scripts": []
       },
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "ngrx-signal-store:build:production"
+          "buildTarget": "todo:build:production"
         },
         "development": {
-          "buildTarget": "ngrx-signal-store:build:development"
+          "buildTarget": "todo:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,7 +65,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "ngrx-signal-store:build"
+        "buildTarget": "todo:build"
       }
     }
   }
