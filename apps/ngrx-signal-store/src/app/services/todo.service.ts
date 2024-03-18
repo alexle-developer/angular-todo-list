@@ -32,4 +32,11 @@ export class TodoService {
   async deleteTodo(id: number) {
     return ToDosData.filter((todo: Todo) => todo.id !== id);
   }
+
+  async updateTodo(id: number, completed: boolean) {
+    return {
+      ...ToDosData.find((todo: Todo) => todo.id === id),
+      completed,
+    };
+  }
 }

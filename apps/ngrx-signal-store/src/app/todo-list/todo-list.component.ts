@@ -40,7 +40,15 @@ export class TodoListComponent {
   }
 
   async onDeleteTodo(id: number, event: MouseEvent) {
-    event.preventDefault();
+    event.stopPropagation();
     await this.store.deleteTodo(id);
+  }
+
+  async onUpdateTodo(id: number, completed: boolean) {
+    await this.store.updateTodo(id, completed);
+  }
+
+  async onTodoToggled(id: number, completed: boolean) {
+    await this.store.updateTodo(id, completed);
   }
 }
