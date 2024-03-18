@@ -17,8 +17,15 @@ const iniitalState: TodoState = {
   filter: 'all',
 };
 
-// equivalent to @Injectable({ providedIn: 'root' })
-// and ToDoService is a singleton
+/**
+ * Represents the TodoStore, which is responsible for managing the state and methods related to todos.
+ *
+ * @remarks
+ * This store provides methods for loading todos, adding a new todo, deleting a todo, and updating a todo.
+ * The state of the store includes the list of todos and a loading flag.
+ *
+ * @public
+ */
 export const TodoStore = signalStore(
   { providedIn: 'root' },
   withState(iniitalState),
@@ -29,12 +36,21 @@ export const TodoStore = signalStore(
       patchState(store, { todos, loading: false });
     },
 
+    /**
+     * Adds a new todo with the specified title to the store.
+     * @param title - The title of the todo.
+     * @returns A Promise that resolves to the newly added todo.
+     */
     async addTodo(title: string) {
       const todo = await todoService.addTodo({ title, completed: false });
       // update the state with the new todo
       patchState(store, (state) => ({ todos: [...state.todos, todo] }));
     },
 
+    /**
+     * Deletes a todo item from the store.
+     * @param id - The ID of the todo item to delete.
+     */
     async deleteTodo(id: number) {
       await todoService.deleteTodo(id);
       patchState(store, (state) => ({
@@ -42,6 +58,12 @@ export const TodoStore = signalStore(
       }));
     },
 
+    /**
+     * Updates the completion status of a todo item.
+     *
+     * @param id - The ID of the todo item to update.
+     * @param completed - The new completion status of the todo item.
+     */
     async updateTodo(id: number, completed: boolean) {
       await todoService.updateTodo(id, completed);
       patchState(store, (state) => ({
