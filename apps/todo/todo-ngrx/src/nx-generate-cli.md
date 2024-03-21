@@ -14,6 +14,14 @@ npx nx g @nx/angular:application --name=todo-ngrx
 --dry-run
 ```
 
+## Add @nx/angular:ngrx-root-store
+
+UPDATE `package.json` and `app.config.ts` files
+
+```
+npx nx generate @nx/angular:ngrx-root-store --project=todo-ngrx --no-interactive --dry-run
+```
+
 ## Start the application
 
 Run `npm run todo-ngrx` or `npx nx run todo-ngrx:serve:development` to start the development server.
