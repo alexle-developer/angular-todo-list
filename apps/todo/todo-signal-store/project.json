@@ -1,28 +1,28 @@
 {
-  "name": "todo",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "todo-signal-store",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "",
-  "sourceRoot": "apps/todo-signal-store/src",
+  "sourceRoot": "apps/todo/todo-signal-store/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/todo-signal-store",
-        "index": "apps/todo-signal-store/src/index.html",
-        "browser": "apps/todo-signal-store/src/main.ts",
+        "outputPath": "dist/apps/todo/todo-signal-store",
+        "index": "apps/todo/todo-signal-store/src/index.html",
+        "browser": "apps/todo/todo-signal-store/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/todo-signal-store/tsconfig.app.json",
+        "tsConfig": "apps/todo/todo-signal-store/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/todo-signal-store/src/favicon.ico",
-          "apps/todo-signal-store/src/assets"
+          "apps/todo/todo-signal-store/src/favicon.ico",
+          "apps/todo/todo-signal-store/src/assets"
         ],
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
-          "apps/todo-signal-store/src/styles.scss"
+          "apps/todo/todo-signal-store/src/styles.scss"
         ],
         "scripts": []
       },
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "todo:build:production"
+          "buildTarget": "todo-signal-store:build:production"
         },
         "development": {
-          "buildTarget": "todo:build:development"
+          "buildTarget": "todo-signal-store:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,7 +65,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "todo:build"
+        "buildTarget": "todo-signal-store:build"
       }
     }
   }

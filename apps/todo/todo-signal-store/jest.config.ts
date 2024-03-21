@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'todo',
-  preset: '../../jest.preset.js',
+  displayName: 'todo-signal-store',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/todo-signal-store',
+  coverageDirectory: '../../../coverage/apps/todo/todo-signal-store',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
