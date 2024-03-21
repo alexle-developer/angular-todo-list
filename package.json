@@ -9,7 +9,8 @@
     "test": "npx nx test",
     "lint": "npx nx lint",
     "e2e": "npx nx e2e",
-    "todo-signal": "npx nx run todo-signal-store:serve:development"
+    "todo-signal": "npx nx run todo-signal-store:serve:development",
+    "todo-ngrx": "npx nx run todo-ngrx:serve:development"
   },
   "private": true,
   "dependencies": {
