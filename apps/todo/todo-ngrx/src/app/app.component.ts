@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, TodoListComponent],
   selector: 'angular-signal-store-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

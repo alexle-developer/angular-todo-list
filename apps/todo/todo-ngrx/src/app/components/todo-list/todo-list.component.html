@@ -1,0 +1,8 @@
+<h1>ToDo NgRx Application</h1>
+
+<!-- TODO: display only -->
+<mat-selection-list class="todo-list">
+  <mat-list-option *ngFor="let todo of todo$ | async; let i = index">
+    <div class="todo-item">{{ todo.id }} - {{ todo.title }}</div>
+  </mat-list-option>
+</mat-selection-list>
