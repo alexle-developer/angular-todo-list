@@ -3,7 +3,7 @@
 #### Simple Angular ToDo applications that demonstrates the use of Angular Signal Store and NgRx to manage the state of the application.
 
 - todo-signal-store: using Angular Signal Store to manage the state of the application.
-- todo-ngrx: using NgRx to manage the state of the application.
+- todo-ngrx: using NgRx to manage the state of the application (in working progress).
 
 ## Start the application
 
