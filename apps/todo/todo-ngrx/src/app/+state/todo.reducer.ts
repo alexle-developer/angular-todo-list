@@ -2,12 +2,17 @@ import { createReducer, on } from '@ngrx/store';
 import * as TodoActions from './todo.actions';
 import { Todo } from '../model/todo.model';
 
+export type TodosFilter = 'all' | 'active' | 'completed';
 export interface TodoState {
   todos: Todo[];
+  loading: boolean;
+  filter: TodosFilter;
 }
 
 export const initialState: TodoState = {
   todos: [],
+  loading: false,
+  filter: 'all',
 };
 
 export const todoReducer = createReducer(
