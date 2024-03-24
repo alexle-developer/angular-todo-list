@@ -1,8 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoService } from '../../services/todo.service';
 import { Observable } from 'rxjs';
-import { Todo } from '../../model/todo.model';
 import {
   MatFormFieldModule,
   MatLabel,
@@ -13,6 +11,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectionList, MatListOption } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
+import { Todo } from '../../model/todo.model';
+import { AppState } from '../../+state/todo.state';
+import { Store } from '@ngrx/store';
+import { selectTodoLoading, selectTodos } from '../../+state/todo.selectors';
+import * as TodoActions from '../../+state/todo.actions';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -33,24 +36,23 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css',
 })
-export class TodoListComponent implements OnInit {
-  todoService = inject(TodoService);
+export class TodoListComponent {
   todo$: Observable<Todo[]>;
+  isLoading$: Observable<boolean>;
 
-  constructor() {
-    // TODO: service to be replaced with ngrx store
-    // for now using service to fetch data
-    this.todo$ = this.todoService.getTodos();
-    console.log('constructor: ', this.todo$);
-  }
+  constructor(private store: Store<AppState>) {
+    this.todo$ = this.store.select(selectTodos);
+    this.isLoading$ = this.store.select(selectTodoLoading);
+    this.loadTodos;
 
-  ngOnInit(): void {
-    this.loadTodos();
+    // TODO: for debug only
+    this.todo$.subscribe((todos) => {
+      console.log('constructor todos: ', todos);
+    });
   }
 
   loadTodos() {
-    this.todoService.getTodos().subscribe((todos) => {
-      console.log('Todos loaded:', todos);
-    });
+    // use store dispatch to load todos
+    this.store.dispatch(TodoActions.loadTodos());
   }
 }

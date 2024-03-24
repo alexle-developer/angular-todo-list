@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as TodoActions from './todo.actions';
 import { Todo } from '../model/todo.model';
+import { ToDosData } from '../model/todo-mock-data';
 
 export type TodosFilter = 'all' | 'active' | 'completed';
 export interface TodoState {
@@ -10,13 +11,28 @@ export interface TodoState {
 }
 
 export const initialState: TodoState = {
-  todos: [],
+  todos: ToDosData,
   loading: false,
   filter: 'all',
 };
 
 export const todoReducer = createReducer(
   initialState,
+  on(TodoActions.loadTodos, (state) => ({
+    ...state,
+    loading: true,
+  })),
+
+  on(TodoActions.loadTodosSuccess, (state, { todos }) => ({
+    ...state,
+    todos,
+    loading: false,
+  })),
+
+  on(TodoActions.loadTodosFailure, (state) => ({
+    ...state,
+    loading: false,
+  })),
 
   on(TodoActions.addTodo, (state, { todo }) => ({
     ...state,
